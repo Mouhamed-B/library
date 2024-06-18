@@ -23,7 +23,7 @@ class BookFormView(LoginRequiredMixin,FormView):
     login_url = '/sign-in/'
     template_name = 'books/create_book.html'
     form_class = BookForm
-    success_url = 'books/create_book?success=true'
+    success_url = '/create_book?success=true'
 
     def form_valid(self, form):
         # This method is called when valid form data has been POSTed.
