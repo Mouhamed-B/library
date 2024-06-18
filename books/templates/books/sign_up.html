@@ -1,0 +1,31 @@
+{% extends 'books/main.html' %}
+
+{% block Content %}
+<main class="form-signin col-8 col-md-6 col-lg-3  m-auto">
+  <form>
+    <img class="mb-4" src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+    <h1 class="h3 mb-3 fw-normal">Please sign up</h1>
+    <div class="form-floating mb-3">
+      <input required type="text" class="form-control" id="floatingInput1" placeholder="First Name">
+      <label for="floatingInput1">First Name</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input required type="text" class="form-control" id="floatingInput2" placeholder="Last Name">
+      <label for="floatingInput2">Last Name</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input required type="email" class="form-control" id="floatingInput3" placeholder="Username">
+      <label for="floatingInput3">Username</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input required type="email" class="form-control" id="floatingInput4" placeholder="name@example.com">
+      <label for="floatingInput4">Email address</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input required type="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <label for="floatingPassword">Password</label>
+    </div>
+    <button class="btn btn-primary w-100 py-2" type="submit">Sign up</button>
+  </form>
+</main>
+{% endblock Content %}
