@@ -39,7 +39,12 @@
               <span>{{request.user.username}}</span>
             </a>
             <ul class="dropdown-menu text-small">
-              <li><a class="dropdown-item" href="#">Sign out</a></li>
+              <li><a class="dropdown-item" href="">
+                <form action="{% url 'sign_out' %}" class="col-2" method="post">
+                  {% csrf_token %}
+                  <button type="submit" class="btn btn-default">Sign Out</button>
+                </form>
+              </a></li>
             </ul>
           </div>
         {% else %}

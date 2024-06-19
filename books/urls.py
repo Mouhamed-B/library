@@ -22,5 +22,8 @@ urlpatterns = [
     path('', BookListView.as_view(), name='book_list'),
     path('book/<pk>', BookDetailView.as_view(), name='book_detail'),
     path('create-book', BookFormView.as_view(), name='create_book'),
-    path('sign-in', SignInView.as_view(), name='sign_in')
+    path('sign-in', SignInView.as_view(), name='sign_in'),
+    path('sign-out', SignOutView.as_view(), name='sign_out'),
+    path('book/<pk>/status/<status>', update_book_status, name='update_book_status'),
+    path('book/<pk>/delete', delete_book, name='delete_book')
 ]
