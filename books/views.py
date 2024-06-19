@@ -35,7 +35,6 @@ class BookFormView(LoginRequiredMixin,FormView):
     def form_valid(self, form):
         # This method is called when valid form data has been POSTed.
         # It should return an HttpResponse.
-        print(form)
         form.save()
         return super().form_valid(form)
 
@@ -61,10 +60,16 @@ class SignOutView(LogoutView):
     next_page = '/'
 
 
-class SignUpView(CreateView):
+class SignUpView(FormView):
     template_name = 'books/sign_up.html'
     form_class = SignupForm
-    success_url = '/sign_in'
+    success_url = '/sign-in'
+
+    def form_valid(self, form):
+        # This method is called when valid form data has been POSTed.
+        # It should return an HttpResponse.
+        form.save()
+        return super().form_valid(form)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
