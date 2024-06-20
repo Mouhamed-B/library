@@ -19,16 +19,16 @@
                         {% endif %}
                         <p class="mb-0 text-success col-2">Available</p>
                     {% else %}
-                        {% if object.checked_out_by.is_active %}
-                            <form action="{% url 'update_book_status' pk=object.pk  status=0 %}" class="col-2" method="post">
+                        {% if object.checked_out_by.pk == request.user.pk %}
+                            <form action="{% url 'update_book_status' pk=object.pk  status=0 %}" class="col-3" method="post">
                                 {% csrf_token %}
                                 <button type="submit" class="btn btn-primary">Return</button>
                             </form>
                         {% else %}
-                            <p class="mb-0 text-info col-2">Checked out by {{object.checked_out_by.username}}</p>
+                            <p class="mb-0 text-info col-3">Checked out by {{object.checked_out_by.username}}</p>
                         {% endif %}
                         
-                        <p class="mb-0 text-danger col-2">Unavailable</p>
+                        <p class="mb-0 text-danger col-1">Unavailable</p>
                     {% endif %}
                     {% if user_is_authenticated %}
                         <form action="{% url 'delete_book' pk=object.pk %}" class="col d-flex" method="post">
